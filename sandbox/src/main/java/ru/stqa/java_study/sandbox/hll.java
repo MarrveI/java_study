@@ -4,7 +4,7 @@ public class hll {
 
     public static void main(String[] args)
     {
-        System.out.println("Hello, Стасик засрасик");
+        System.out.println("Hello, ворлд");
     }
 
     }
