@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.npm:fs.realpath:1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/fs.realpath/1.0.0/f3ce2f14d82235a3f756b336113d3233dce00eef/fs.realpath-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/fs.realpath/1.0.0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/fs.realpath-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
