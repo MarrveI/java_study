@@ -1,7 +1,7 @@
 package ru.stqa.study_java.addressbook;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,9 +16,9 @@ public class GroupCreationTests {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+    System.setProperty("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
 
-    driver = new ChromeDriver();
+    driver = new FirefoxDriver();
 
     System.out.println("fff");
     // baseUrl = "https://www.katalon.com/";
