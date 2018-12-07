@@ -1,6 +1,7 @@
 package ru.stqa.java_study.autover;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,7 +20,7 @@ public class autover {
     System.setProperty("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
     driver = new FirefoxDriver();
   }
-
+  
   @Test
   public void testUntitledTestCase() throws Exception {
     driver.get("http://i.control.fbn/games/testslots");
@@ -29,8 +30,16 @@ public class autover {
     driver.findElement(By.name("_password")).clear();
     driver.findElement(By.name("_password")).sendKeys("123456");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Авторизация'])[1]/following::button[1]")).click();
+
+    Thread.sleep(5000);
+
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Автомат'])[1]/following::span[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Crazy Fruits'])[2]/following::span[1]")).click();
+
+    WebElement element = driver.findElement(By.xpath("//span[text()='Crazy Monkey']"));
+    element.click();
+
+    Thread.sleep(4000);
+
     driver.findElement(By.id("form-cost")).click();
     driver.findElement(By.id("form-cost")).clear();
     driver.findElement(By.id("form-cost")).sendKeys("1");
@@ -44,9 +53,11 @@ public class autover {
     driver.findElement(By.id("form-probabilities")).clear();
     driver.findElement(By.id("form-probabilities")).sendKeys("2377|2247|1090|2012|1778|1000|186|761|416");
     driver.findElement(By.id("start")).click();
+
+    Thread.sleep(8000);
   }
 
-  @AfterClass(alwaysRun = true)
+   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     driver.quit();
     String verificationErrorString = verificationErrors.toString();

@@ -12,4 +12,5 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
     compile group: 'org.webjars.npm', name: 'selenium-webdriver', version: '2.53.3'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-opera-driver', version: '3.141.59'
+    compile group: 'com.atomicleopard', name: 'webelemental', version: '0.0.1'
 }
