@@ -1,11 +1,15 @@
 package ru.stqa.java_study.autover;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.Iterator;
+import java.util.Set;
 
 import static org.testng.Assert.fail;
 
@@ -31,14 +35,14 @@ public class autover {
     driver.findElement(By.name("_password")).sendKeys("123456");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Авторизация'])[1]/following::button[1]")).click();
 
-    Thread.sleep(5000);
+    Thread.sleep(3000);
 
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Автомат'])[1]/following::span[1]")).click();
 
     WebElement element = driver.findElement(By.xpath("//span[text()='Crazy Monkey']")); // fixme выбор слота
     element.click();
 
-    Thread.sleep(4000);
+    Thread.sleep(2000);
 
     driver.findElement(By.id("form-cost")).click();
     driver.findElement(By.id("form-cost")).clear();
@@ -57,7 +61,25 @@ public class autover {
     driver.findElement(By.id("form-probabilities")).sendKeys("2377|2247|1090|2012|1778|1000|186|761|416");   //fixme вероятность
     driver.findElement(By.id("start")).click();
 
-    Thread.sleep(8000);
+    Thread.sleep(2000);
+
+    Robot r = new Robot();
+    r.keyPress(KeyEvent.VK_CONTROL);
+    r.keyPress(KeyEvent.VK_T);
+    r.keyRelease(KeyEvent.VK_CONTROL);
+    r.keyRelease(KeyEvent.VK_T);
+
+    Thread.sleep(2000);
+
+    Set<String> ids = driver.getWindowHandles();
+    Iterator<String> it = ids.iterator();
+    String currentWindow = it.next();
+    String newWindow = it.next();
+    driver.switchTo().window(newWindow);
+//    driver.findElement(By.linkText("http://i.control.fbn/games/testslots"));//.sendKeys(selectLinkOpeninNewTab);
+    driver.get("http://i.control.fbn/games/testslots");
+
+    Thread.sleep(5000);
   }
 
    @AfterClass(alwaysRun = true)
