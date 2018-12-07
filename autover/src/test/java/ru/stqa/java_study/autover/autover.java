@@ -20,7 +20,7 @@ public class autover {
     System.setProperty("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
     driver = new FirefoxDriver();
   }
-  
+
   @Test
   public void testUntitledTestCase() throws Exception {
     driver.get("http://i.control.fbn/games/testslots");
@@ -35,7 +35,7 @@ public class autover {
 
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Автомат'])[1]/following::span[1]")).click();
 
-    WebElement element = driver.findElement(By.xpath("//span[text()='Crazy Monkey']"));
+    WebElement element = driver.findElement(By.xpath("//span[text()='Crazy Monkey']")); // fixme выбор слота
     element.click();
 
     Thread.sleep(4000);
@@ -43,15 +43,18 @@ public class autover {
     driver.findElement(By.id("form-cost")).click();
     driver.findElement(By.id("form-cost")).clear();
     driver.findElement(By.id("form-cost")).sendKeys("1");
+    driver.findElement(By.id("form-lines")).click();
+    driver.findElement(By.id("form-lines")).clear();
+    driver.findElement(By.id("form-lines")).sendKeys("5");
     driver.findElement(By.id("form-number")).click();
     driver.findElement(By.id("form-number")).clear();
     driver.findElement(By.id("form-number")).sendKeys("1000000");
-    driver.findElement(By.id("form-use_safe_life_sets")).click();
-    driver.findElement(By.id("form-use_safe_life_sets")).clear();
-    driver.findElement(By.id("form-use_safe_life_sets")).sendKeys("1");
+    driver.findElement(By.id("form-use_safe_life_sets")).click();                      //fixme слоты игрософта, доп жизнь
+    driver.findElement(By.id("form-use_safe_life_sets")).clear();                     //fixme слоты игрософта, доп жизнь
+    driver.findElement(By.id("form-use_safe_life_sets")).sendKeys("1");  //fixme слоты игрософта, доп жизнь
     driver.findElement(By.id("form-probabilities")).click();
     driver.findElement(By.id("form-probabilities")).clear();
-    driver.findElement(By.id("form-probabilities")).sendKeys("2377|2247|1090|2012|1778|1000|186|761|416");
+    driver.findElement(By.id("form-probabilities")).sendKeys("2377|2247|1090|2012|1778|1000|186|761|416");   //fixme вероятность
     driver.findElement(By.id("start")).click();
 
     Thread.sleep(8000);
